@@ -48,7 +48,7 @@ ol {
 input {
   background-color: inherit;
 }
-
+/*
 input::placeholder {
   font-family: Fira Sans Condensed, sans-serif;
   font-size: 18px;
@@ -56,13 +56,13 @@ input::placeholder {
   line-height: 21.6px;
   text-align: left;
   color: white;
-}
+}*/
 
 .content {
   display: flex;
   width: 1140px;
   height: 534px;
-   column-gap: 26px;
+   column-gap: 30px;
 }
 
 .result {
@@ -84,19 +84,13 @@ input::placeholder {
   margin-top: 78px;
   margin-bottom: 16px;
   overflow: hidden;
+  display: flex;
+  align-items: stretch;
 }
 
 .result__video {
-  min-width: 100%;
-  min-height: 100%;
-  
-  width: auto;
-  height: auto;
-  
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+   width: 100%;
+  object-fit: cover;
 }
 
 .search-form {
@@ -109,6 +103,7 @@ input::placeholder {
 
 .search-form__fieldset {
   display: inline-block;
+  margin-bottom: 4px;
 }
 
 .search-form__fieldset-title {
@@ -117,12 +112,14 @@ input::placeholder {
   font-weight: 400;
   line-height: 21.6px;
   text-align: left;
+  margin-bottom: 5px;
 }
 
 .search-form__textfield {
   background-color: inherit;
-  width: 215px;
-  height: 22px;
+  
+  min-inline-size: 225px;
+  height: 26px;
   border: none;
   border-bottom: 1px solid #fff;
   border-top: 1px solid white;
@@ -132,18 +129,7 @@ input::placeholder {
   line-height: 21.6px;
   text-align: left;
   color: #fff;
-}
-
-.search-form__textfield:active {
-  border: 1px solid white;
-}
-
-.search-form__textfield:focus {
-  outline: none;
-}
-
-.search-form__textfield:focus-visible {
-  outline: 1px solid white;
+  padding-top: 2px;
 }
 
 .search-form__textfield::placeholder {
@@ -167,9 +153,13 @@ input::placeholder {
   column-gap: 15px;
 }
 
+
 .search-form__label {
   display: flex;
   flex-direction: row;
+  width: fit-content;
+  cursor: pointer;
+  appearance: none;
 }
 
 .search-form__pseudo-checkbox {
@@ -193,19 +183,15 @@ input::placeholder {
   margin: 1px 1px 1px 1px;
 }
 
-.search-form__label:active {
-  outline: 2px solid white;
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid white
 }
 
-.search-form__label:hover {
+.search-form__label:has(:hover) {
   text-decoration: underline;
 }
 
-.search-form__label:focus {
-  outline: none;
-}
-
-.search-form__label:focus-visible {
+.search-form__label:has(:focus) {
   outline: 1px solid white;
 }
 
@@ -213,8 +199,6 @@ input::placeholder {
   width: 194px;
   height: 34px;
   margin-top:  20px;
-
-
 }
 
 .content__details {
@@ -222,6 +206,9 @@ input::placeholder {
   flex-direction: column;
   width: 400px;
   row-gap: 26px;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  padding-left: 1px;
 }
 
 .title {
@@ -238,7 +225,6 @@ input::placeholder {
 
 .content__accent {
   color: #545050;
-  
 }
 
 .content__list {
@@ -248,28 +234,39 @@ input::placeholder {
   overflow-x: hidden;
   width: 399px;
   height: 298px;
+  padding: 2px 2px 2px 2px;
 }
 
 .content__video-card {
   display: flex;
   justify-content: space-between;
-  width: 399px;
+  width: 395px;
   height: 107px;
-  margin-bottom: 30px;
+  padding: 2px;
   align-content: start;
+  background-color: inherit;
+  overflow: hidden;
 }
+
+
+.content__list-item:not(:first-child) {
+  margin-top: 30px;
+}
+
 
 .content__video-card:active {
   background-color: #545050;
 }
+
 
 .content__video-card:hover {
   text-decoration: underline;
   color: white;
 }
 
-
-
+.content__video-card:focus {
+  outline: 1px solid white;
+}
 
 .content__video-card-thumbnail {
   display: block;
@@ -284,7 +281,6 @@ input::placeholder {
 
 .button {
   background-color: transparent;
-  opacity: 0px;
   font-family: Fira Sans Condensed, sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -304,7 +300,9 @@ input::placeholder {
 }
 
 .button:focus {
-  outline: none;
+  outline: 2px solid white;
+  border: 1px solid white;
+  margin-bottom: 2px;
 }
 
 .button:focus-visible {
@@ -312,7 +310,7 @@ input::placeholder {
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
@@ -320,6 +318,7 @@ input::placeholder {
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
+  margin-bottom: 5px;
 }
 
 .content__video-card-description {
@@ -350,8 +349,3 @@ fieldset {
   border: none;
 }
 
-.search-form__label {
-  width: fit-content;
-  cursor: pointer;
-  appearance: none;
-}
