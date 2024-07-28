@@ -183,16 +183,17 @@ input::placeholder {
   margin: 1px 1px 1px 1px;
 }
 
-.search-form__label:has(:focus-visible) {
+.search-form__label_new:has(:focus-visible) {
   outline: 1px solid white
 }
 
-.search-form__label:has(:hover) {
+.search-form__label_new:has(:hover) {
   text-decoration: underline;
 }
 
-.search-form__label:has(:focus) {
+.search-form__label_new:has(:focus) {
   outline: 1px solid white;
+  padding: 2px 2px 0 2px;
 }
 
 .search-form__submit-button {
@@ -204,7 +205,7 @@ input::placeholder {
 .content__details {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 420px;
   row-gap: 26px;
   padding-top: 3px;
   padding-bottom: 1px;
@@ -232,20 +233,45 @@ input::placeholder {
   position: relative;
   overflow: auto;
   overflow-x: hidden;
-  width: 399px;
+  width: 415px;
   height: 298px;
-  padding: 2px 2px 2px 2px;
+  
+  padding-left: 2px;
+  padding-bottom: 0px;
 }
+
+.content__card-link_current:active {
+  background-color: #545050;
+}
+
+.content__card-link_current:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.content__card-link_current:focus {
+  border: 1px solid white;
+}
+
+.content__card-link_current:focus-visible {
+  border: 1px solid white;
+}
+
 
 .content__video-card {
   display: flex;
   justify-content: space-between;
-  width: 395px;
-  height: 107px;
-  padding: 2px;
+  margin-top: 2px;
+  width: 393px;
+  height: 105px;
+  
   align-content: start;
   background-color: inherit;
   overflow: hidden;
+}
+
+.content__video-card-description-container {
+  flex: 0 0 auto;
 }
 
 
@@ -270,13 +296,15 @@ input::placeholder {
 
 .content__video-card-thumbnail {
   display: block;
+  flex: 0 0 auto;
   width: 194px;
   height: 107px;
 }
 
 .more-button {
-  width: 398px;
+  width: 393px;
   height: 34px;
+  margin-top: 3px;
 }
 
 .button {
@@ -300,13 +328,19 @@ input::placeholder {
 }
 
 .button:focus {
-  outline: 2px solid white;
-  border: 1px solid white;
-  margin-bottom: 2px;
+  height: 31px;
+  outline: 1px solid white;
+  outline-offset: 2px;
+  border: 2px solid white;
+  margin-bottom: 3px;
+  margin-top: 2px;
 }
 
 .button:focus-visible {
-  outline: 2px double white;
+  outline: 1px solid white;
+  outline-offset: 2px;
+  border: 2px solid white;
+  margin-bottom: 3px;
 }
 
 .content__video-card-title {
